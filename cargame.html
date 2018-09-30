@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Type "h" to honk, "d" to drive to work, "w" to drive around the world, "t" to get a tuneup.
+        <br>
+        See Console for car stats.
+    </h1>
+
+
+    <script>
+
+        var car = {
+            make: "Honda",
+            model: "Fit",
+            color: "Blue Raspberry",
+            mileage: 3000,
+            isWorking: true,
+            needsTuneUp: false,
+
+            checkNeedsTuneup: function () {
+                if (this.needsTuneUp) {
+                    alert("Car needs a Tune Up!")
+                }
+            },
+
+            driveToWork: function () {
+
+                alert("Old Mileage: " + this.mileage);
+
+                this.mileage = this.mileage + 8;
+
+                alert("New mileage: " + this.mileage);
+
+                this.checkNeedsTuneup();
+            },
+
+            driveAroundWorld: function () {
+
+                alert("Old Mileage: " + this.mileage);
+
+                this.mileage = this.mileage + 24000;
+                this.needsTuneUp = true;
+
+                alert("New Mileage: " + this.mileage);
+                alert("Car needs a tuneup!");
+
+                this.isWorking = false;
+            },
+
+            getTuneUp: function () {
+                alert("Car is ready to go!");
+                this.isWorking = true;
+                this.needsTuneUp = false;
+            },
+
+            honk: function () {
+                alert("Honk! Honk!");
+            }
+
+// Functions
+
+function reWriteStats() {
+                console.log ("Make: " + car.make);
+        console.log("Model: " + car.model);
+        console.log("Color: " + car.color);
+        console.log("Mileage: " + car.mileage);
+        console.log("Is Working: " + car.isWorking);
+        console.log("------------------");
+   }
+
+
+
+        document.onkeyup = function (event) {
+
+            var letter = event.key.toLowerCase();
+
+            if (letter === "h") {
+                car.honk();
+                reWriteStats();
+            }
+
+
+
+        };
+
+    </script>
+</body>
+
+</html>
